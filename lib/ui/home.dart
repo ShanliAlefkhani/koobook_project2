@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:koobook_project2/util/hexcolor.dart';
+import 'package:rating_bar/rating_bar.dart';
 
 class ReadingApp extends StatefulWidget {
   @override
@@ -112,7 +113,7 @@ class _ReadingState extends State<ReadingApp> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 5),
+                  padding: EdgeInsets.only(top: 5, bottom: 5),
                   child: Text(
                     "Kiran .M .Hargrave",
                     style: TextStyle(
@@ -121,7 +122,19 @@ class _ReadingState extends State<ReadingApp> {
                         color: Colors.grey),
                   ),
                 ),
-                Container(/*inja Setareha*/),
+                Container(
+                  child: RatingBar(
+                    //onRatingChanged: (rating) => setState(() => _rating = rating),
+                    filledIcon: Icons.star,
+                    emptyIcon: Icons.star_border,
+                    halfFilledIcon: Icons.star_half,
+                    isHalfAllowed: true,
+                    filledColor: Colors.yellow,
+                    emptyColor: Colors.grey,
+                    halfFilledColor: Colors.amberAccent,
+                    size: 20,
+                  ),
+                ),
                 Container(
                   padding: EdgeInsets.all(30),
                   child: Row(
