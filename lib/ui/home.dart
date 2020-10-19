@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:koobook_project2/util/hexcolor.dart';
 
 class ReadingApp extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class ReadingApp extends StatefulWidget {
 }
 
 class _ReadingState extends State<ReadingApp> {
+  Color _color1 = HexColor("#03fcfc");
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -23,8 +25,8 @@ class _ReadingState extends State<ReadingApp> {
               fit: StackFit.expand,
               children: [
                 Image.asset(
-                  "assets/2.jpg",
-                  fit: BoxFit.fill,
+                  "assets/3.jpg",
+                  fit: BoxFit.cover,
                   colorBlendMode: BlendMode.hue,
                 ),
                 BackdropFilter(
@@ -38,45 +40,79 @@ class _ReadingState extends State<ReadingApp> {
               ],
             ),
           ),
-          //whitebox
-          Positioned(
-            left: size.width / 25,
-            top: size.height * 5 / 28,
-            child: Container(
-              width: size.width * 23 / 25,
-              height: size.height * 5 / 7,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-            ),
-          ),
-          Positioned(
-            left: size.width * 2 / 5,
-            top: size.height / 10,
+          //white box
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(top: size.height * 5 / 28),
             child: Column(
               children: [
                 Container(
-                  width: size.width / 5,
-                  height: size.height / 5,
+                  width: size.width * 23 / 25,
+                  height: size.height * 18 / 28,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 25),
+                  width: size.width * 22 / 25,
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 5),
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: _color1,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Center(child: Text("Read Preview", style: TextStyle(fontWeight: FontWeight.bold))),
+                          )
+                      ),
+                      Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(left: 5),
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: _color1,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Center(child: Text("Buy Book", style: TextStyle(fontWeight: FontWeight.bold))),
+                          )
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            margin: EdgeInsets.only(top: size.height / 10),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Container(
+                  width: size.width * 6 / 20,
+                  height: size.height * 5 / 20,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: ExactAssetImage("assets/2.jpg"),
-                      fit: BoxFit.fill,
+                      image: ExactAssetImage("assets/3.jpg"),
+                      fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 Container(
-                  //inja
-                  padding: EdgeInsets.only(top: 105),
+                  padding: EdgeInsets.only(top: 10),
                   child: Text(
                     "The Girl Of Ink And Stars.",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 7),
+                  padding: EdgeInsets.only(top: 5),
                   child: Text(
                     "Kiran .M .Hargrave",
                     style: TextStyle(
@@ -87,40 +123,65 @@ class _ReadingState extends State<ReadingApp> {
                 ),
                 Container(/*inja Setareha*/),
                 Container(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(30),
                   child: Row(
-                    //inja faseleha
                     children: [
-                      Container(
-                        //padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.all(12),
-                        width: 80,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: Colors.tealAccent,
-                          borderRadius: BorderRadius.circular(8.0),
+                      Expanded(
+                        child: Container(
+                          //padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(5),
+                          //width: 80,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: _color1,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Center(
+                              child: Text("Thriller",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold))),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.all(12),
-                        width: 80,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: Colors.tealAccent,
-                          borderRadius: BorderRadius.circular(8.0),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.all(5),
+                          //width: 80,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: _color1,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Adventure",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.all(12),
-                        width: 80,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: Colors.tealAccent,
-                          borderRadius: BorderRadius.circular(8.0),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.all(5),
+                          //width: 80,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: _color1,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Fantasy",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
                         ),
                       ),
                     ],
                   ),
+                ),
+                //inja matn
+                Text(
+                  "salam\n"
+                  "salam\n"
+                  "salam\n",
                 ),
               ],
             ),
