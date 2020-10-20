@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:koobook_project2/util/hexcolor.dart';
@@ -12,6 +11,7 @@ class ReadingApp extends StatefulWidget {
 
 class _ReadingState extends State<ReadingApp> {
   Color _color1 = HexColor("#03fcfc");
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -62,26 +62,28 @@ class _ReadingState extends State<ReadingApp> {
                     children: [
                       Expanded(
                           child: Container(
-                            margin: EdgeInsets.only(right: 5),
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: _color1,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Center(child: Text("Read Preview", style: TextStyle(fontWeight: FontWeight.bold))),
-                          )
-                      ),
+                        margin: EdgeInsets.only(right: 5),
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: _color1,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Center(
+                            child: Text("Read Preview",
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                      )),
                       Expanded(
                           child: Container(
-                            margin: EdgeInsets.only(left: 5),
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: _color1,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Center(child: Text("Buy Book", style: TextStyle(fontWeight: FontWeight.bold))),
-                          )
-                      )
+                        margin: EdgeInsets.only(left: 5),
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: _color1,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Center(
+                            child: Text("Buy Book",
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                      ))
                     ],
                   ),
                 )
@@ -136,7 +138,8 @@ class _ReadingState extends State<ReadingApp> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(30),
+                  padding:
+                      EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 10),
                   child: Row(
                     children: [
                       Expanded(
@@ -191,10 +194,17 @@ class _ReadingState extends State<ReadingApp> {
                   ),
                 ),
                 //inja matn
-                Text(
-                  "salam\n"
-                  "salam\n"
-                  "salam\n",
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 35),
+                  child: Text(
+                    "They say the day the Governor arrived, the\n"
+                    "ravens did too. All the smaller birds flew\n"
+                    "backward into the sea, and that is why\n"
+                    "there are no songbirds on Joya. Only huge\n"
+                    "ragged ravens.\n",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
