@@ -193,7 +193,6 @@ class _ReadingState extends State<ReadingApp> {
                     ],
                   ),
                 ),
-                //inja matn
                 Container(
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 35),

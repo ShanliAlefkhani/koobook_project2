@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   rating_bar: 0.2.0
+  material_segmented_control: ^2.1.0
   flutter:
     sdk: flutter
 
