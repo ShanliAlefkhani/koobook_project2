@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:koobook_project2/util/hexcolor.dart';
 import 'package:rating_bar/rating_bar.dart';
+import 'package:material_segmented_control/material_segmented_control.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -9,6 +10,15 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  int _currentSelection = 0;
+  Color _color1 = HexColor("#03fcfc");
+
+  Map<int, Widget> _children = {
+    0: Text('Trending'),
+    1: Text('Popular'),
+    2: Text('New'),
+  };
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -209,12 +219,24 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
-            decoration: BoxDecoration(
-                color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(12.0)),
-            child: Tabs(),
-          ),
+              margin: EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+              width: size.width,
+              child: MaterialSegmentedControl(
+                children: _children,
+                selectionIndex: _currentSelection,
+                borderColor: Colors.grey.shade400,
+                selectedColor: _color1,
+                unselectedColor: Colors.grey.shade300,
+                borderRadius: 10.0,
+                disabledChildren: [
+                  3,
+                ],
+                onSegmentChosen: (index) {
+                  setState(() {
+                    _currentSelection = index;
+                  });
+                },
+              )),
           Container(
             margin: EdgeInsets.only(left: 20, right: 20),
             height: size.height * 3 / 20,
@@ -311,7 +333,7 @@ class _SearchPageState extends State<SearchPage> {
                               child: Text(
                                 "Kiran .M .Hargrave",
                                 style:
-                                TextStyle(fontSize: 10, color: Colors.grey),
+                                    TextStyle(fontSize: 10, color: Colors.grey),
                               )),
                           Container(
                             child: RatingBar(
@@ -331,7 +353,7 @@ class _SearchPageState extends State<SearchPage> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "They say the day the Governor arrived, the\n"
-                                  "ravens did too.\n",
+                              "ravens did too.\n",
                               style: TextStyle(
                                   fontSize: 11, color: Colors.grey.shade700),
                             ),
@@ -371,7 +393,7 @@ class _SearchPageState extends State<SearchPage> {
                               child: Text(
                                 "Kiran .M .Hargrave",
                                 style:
-                                TextStyle(fontSize: 10, color: Colors.grey),
+                                    TextStyle(fontSize: 10, color: Colors.grey),
                               )),
                           Container(
                             child: RatingBar(
@@ -391,7 +413,7 @@ class _SearchPageState extends State<SearchPage> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "They say the day the Governor arrived, the\n"
-                                  "ravens did too.\n",
+                              "ravens did too.\n",
                               style: TextStyle(
                                   fontSize: 11, color: Colors.grey.shade700),
                             ),
